@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSPF and EIGRP Network Redistribution Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Linking OSPF and EIGRP Networks with Redistribution</h1>
+            <nav>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#topology">Network Topology</a></li>
+                    <li><a href="#protocols">Protocols</a></li>
+                    <li><a href="#configuration">Configuration</a></li>
+                    <li><a href="#results">Results</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="overview" class="container section">
+        <h2>Project Overview</h2>
+        <p>This GNS3 project demonstrates the implementation of a complex network that interconnects OSPF and EIGRP routing domains through route redistribution. The network consists of multiple OSPF areas and EIGRP autonomous systems, showcasing how these two popular routing protocols can coexist in a single enterprise network.</p>
+    </section>
+
+    <section id="topology" class="container section">
+        <h2>Network Topology</h2>
+        <div class="topology-container">
+            <div class="topology-image">
+                <img src="topology.png" alt="Network Topology" onerror="this.src='placeholder-topology.png'; this.onerror=null;">
+            </div>
+            <div class="topology-description">
+                <h3>Network Areas</h3>
+                <ul>
+                    <li><strong>OSPF Areas:</strong> The network contains 4 OSPF areas (Area 0, Area 1, Area 2, and Area 3)</li>
+                    <li><strong>EIGRP Autonomous Systems:</strong> There are 3 EIGRP domains (AS 1, AS 2, and AS 3)</li>
+                    <li><strong>Interconnection:</strong> Redistribution points connect the OSPF and EIGRP domains</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="protocols" class="container section">
+        <h2>Routing Protocols</h2>
+        <div class="protocol-grid">
+            <div class="protocol-card">
+                <h3>OSPF (Open Shortest Path First)</h3>
+                <p>A link-state routing protocol that uses the Dijkstra algorithm to calculate the shortest path. In this project, OSPF is configured with a hierarchical design using multiple areas:</p>
+                <ul>
+                    <li>Area 0 (Backbone)</li>
+                    <li>Area 1, Area 2, and Area 3 (Non-backbone areas)</li>
+                </ul>
+            </div>
+            <div class="protocol-card">
+                <h3>EIGRP (Enhanced Interior Gateway Routing Protocol)</h3>
+                <p>An advanced distance-vector routing protocol that uses the Diffusing Update Algorithm (DUAL). The EIGRP domains in this project are:</p>
+                <ul>
+                    <li>AS 1</li>
+                    <li>AS 2</li>
+                    <li>AS 3</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="configuration" class="container section">
+        <h2>Configuration Highlights</h2>
+        <div class="config-container">
+            <div class="config-item">
+                <h3>OSPF Configuration</h3>
+                <pre class="config-code">
+router ospf 1
+ router-id 1.1.1.1
+ network 192.168.1.0 0.0.0.255 area 2
+ network 200.0.1.0 0.0.0.255 area 0
+ network 200.0.2.0 0.0.0.255 area 0
+</pre>
+            </div>
+            <div class="config-item">
+                <h3>EIGRP Configuration</h3>
+                <pre class="config-code">
+router eigrp 1
+ network 10.0.0.0 0.0.0.255
+ no auto-summary
+!
+router eigrp 2
+ network 16.0.0.0 0.0.0.255
+ no auto-summary
+</pre>
+            </div>
+            <div class="config-item">
+                <h3>Redistribution</h3>
+                <pre class="config-code">
+router ospf 1
+ redistribute eigrp 1 metric-type 1 subnets
+!
+router eigrp 1
+ redistribute ospf 1 metric 10000 100 255 1 1500
+</pre>
+            </div>
+        </div>
+    </section>
+
+    <section id="results" class="container section">
+        <h2>Project Results</h2>
+        <div class="results-container">
+            <p>This network implementation successfully demonstrates:</p>
+            <ul>
+                <li>Configuration of OSPF multi-area topology</li>
+                <li>Configuration of multiple EIGRP autonomous systems</li>
+                <li>Route redistribution between OSPF and EIGRP</li>
+                <li>End-to-end connectivity across different routing domains</li>
+                <li>Optimal path selection between networks</li>
+            </ul>
+            <p>The project validates that organizations can run both OSPF and EIGRP simultaneously and achieve full connectivity across their network infrastructure through proper redistribution configuration.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 OSPF-EIGRP Redistribution Project | Created with GNS3</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

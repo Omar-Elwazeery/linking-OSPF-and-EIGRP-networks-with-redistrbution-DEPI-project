@@ -1,0 +1,49 @@
+Oct 22 07:35:48.946 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Oct 22 07:35:48.947 HYPERVISOR: Started on IP = localhost, TCP port = 51593.
+Oct 22 07:35:49.384 HYPERVISOR: exec_cmd: hypervisor version 
+Oct 22 07:35:49.386 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\User\Desktop\final\project-files\dynamips 
+Oct 22 07:35:49.387 GENERAL: working_dir=C:\Users\User\Desktop\final\project-files\dynamips
+Oct 22 07:35:49.388 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\User\Desktop\final\project-files\dynamips\82107fb9-866e-41b0-b78f-50ef53d30ea5 
+Oct 22 07:35:49.388 GENERAL: working_dir=C:\Users\User\Desktop\final\project-files\dynamips\82107fb9-866e-41b0-b78f-50ef53d30ea5
+Oct 22 07:35:49.392 HYPERVISOR: exec_cmd: vm create R9 9 c7200 
+Oct 22 07:35:49.402 VM: VM R9 created.
+Oct 22 07:35:49.405 HYPERVISOR: exec_cmd: vm set_con_tcp_port R9 5008 
+Oct 22 07:35:49.405 HYPERVISOR: exec_cmd: c7200 get_mac_addr R9 
+Oct 22 07:35:49.405 HYPERVISOR: exec_cmd: vm get_status R9 
+Oct 22 07:35:49.407 HYPERVISOR: exec_cmd: vm slot_add_binding R9 0 0 C7200-IO-FE 
+Oct 22 07:35:49.412 HYPERVISOR: exec_cmd: vm set_disk0 R9 0 
+Oct 22 07:35:49.414 HYPERVISOR: exec_cmd: vm set_exec_area R9 64 
+Oct 22 07:35:49.417 HYPERVISOR: exec_cmd: vm get_status R9 
+Oct 22 07:35:49.417 HYPERVISOR: exec_cmd: vm set_idle_pc R9 0x60189224 
+Oct 22 07:35:49.420 HYPERVISOR: exec_cmd: vm set_ios R9 C:/Users/User/GNS3/images/IOS/c7200-adventerprisek9-mz.152-4.M8.image 
+Oct 22 07:35:49.420 HYPERVISOR: exec_cmd: c7200 set_mac_addr R9 ca09.2a18.0000 
+Oct 22 07:35:49.420 HYPERVISOR: exec_cmd: vm set_nvram R9 512 
+Oct 22 07:35:49.420 HYPERVISOR: exec_cmd: vm set_ram R9 512 
+Oct 22 07:35:49.420 HYPERVISOR: exec_cmd: vm get_status R9 
+Oct 22 07:35:49.420 HYPERVISOR: exec_cmd: vm slot_add_binding R9 1 0 PA-2FE-TX 
+Oct 22 07:35:49.437 HYPERVISOR: exec_cmd: vm get_status R9 
+Oct 22 07:35:49.437 HYPERVISOR: exec_cmd: vm slot_add_binding R9 2 0 PA-FE-TX 
+Oct 22 07:36:01.897 HYPERVISOR: exec_cmd: nio create_udp udp-624e756b-83e4-4d34-84ba-a5d18a251185 10046 127.0.0.1 10047 
+Oct 22 07:36:02.246 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R9 1 1 udp-624e756b-83e4-4d34-84ba-a5d18a251185 
+Oct 22 07:36:02.249 HYPERVISOR: exec_cmd: vm get_status R9 
+Oct 22 07:36:03.071 HYPERVISOR: exec_cmd: nio create_udp udp-55f8826a-1605-4205-9411-0e214c7b0fc3 10056 127.0.0.1 10057 
+Oct 22 07:36:03.088 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R9 1 0 udp-55f8826a-1605-4205-9411-0e214c7b0fc3 
+Oct 22 07:36:03.088 HYPERVISOR: exec_cmd: vm get_status R9 
+Oct 22 07:40:14.097 HYPERVISOR: exec_cmd: vm set_ghost_status R9 2 
+Oct 22 07:40:14.105 HYPERVISOR: exec_cmd: vm set_ghost_file R9 C:\Users\User\Desktop\final\project-files\dynamips\c7200-adventerprisek9-mz.152-4.M8.image-512.ghost 
+Oct 22 07:40:14.110 HYPERVISOR: exec_cmd: vm get_status R9 
+Oct 22 07:40:14.122 HYPERVISOR: exec_cmd: vm set_config R9 configs\i9_startup-config.cfg configs\i9_private-config.cfg 
+Oct 22 07:40:14.122 HYPERVISOR: exec_cmd: vm start R9 
+Oct 22 07:40:45.042 HYPERVISOR: exec_cmd: vm extract_config R9 
+Oct 22 07:41:45.101 HYPERVISOR: exec_cmd: vm extract_config R9 
+Oct 22 08:01:29.053 HYPERVISOR: exec_cmd: vm get_status R9 
+Oct 22 08:01:29.054 HYPERVISOR: exec_cmd: vm stop R9 
+Oct 22 08:01:29.302 VM: VM R9 shutdown.
+Oct 22 08:01:29.309 HYPERVISOR: exec_cmd: vm extract_config R9 
+Oct 22 08:01:31.267 HYPERVISOR: exec_cmd: vm get_status R9 
+Oct 22 08:01:31.270 HYPERVISOR: exec_cmd: vm extract_config R9 
+Oct 22 08:01:31.276 HYPERVISOR: exec_cmd: vm delete R9 
+Oct 22 08:01:31.276 VM: VM R9 destroyed.
+Oct 22 08:01:31.283 HYPERVISOR: exec_cmd: hypervisor stop 
+Oct 22 08:01:31.764 HYPERVISOR: Stopped.
+Oct 22 08:01:31.765 GENERAL: reset done.
